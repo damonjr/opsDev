@@ -56,7 +56,7 @@ class CheckDml:
         try:
             self.fot = open(list_file_dir, 'r', encoding='utf8').read()
         except:
-            print('\n文件格式错误:'+list_file_dir+'需要将文件另存为文件编码为utf-8的编码文件')
+            print('\n文件格式错误:'+list_file_dir+'需要将文件另存为文件编码为utf-8的编码文件。')
         self.fot = self.fot.strip()  # 删除前后空格
         self.fot = self.fot.lower()  # 所有字母转为小写
         self.fot = re.sub('\s{2,}', " ", self.fot)  # 删除2个及以上的空格
@@ -87,7 +87,7 @@ class CheckDml:
             self.oalllogs = open('.//all.txt', 'r', encoding='utf-8')
             self.alllogs = self.oalllogs.read()
         except:
-            print('\n文件格式错误:'+efilename+'需要将文件另存为文件编码为utf-8的编码文件')
+            print('\n文件格式错误:'+efilename+'需要将文件另存为文件编码为utf-8的编码文件。')
 
         # print(self.alllogs)
         for list_fo in list_fos:
@@ -98,6 +98,7 @@ class CheckDml:
                 pass
             else:
                 print('\n'+efilename+'未执行语句：\n'+list_fo)
+                print(11)
 
         self.oalllogs.close()
 
