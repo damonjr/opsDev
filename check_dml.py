@@ -35,8 +35,8 @@ class CheckDml:
         for list_file_dir in self.list_file_dirs:
             self.fo = self._foemat_txt(list_file_dir)
             if fpaths==sys.argv[1]:
-                self.new_file1.write("--------" + list_file_dir + "--------\n")
-                self.new_file1.write(str(self.fo))
+                self.new_file1.write("\n-------" + list_file_dir + "--------\n")
+                self.new_file1.write(str(self.fo).replace("\\\\", "\\"))
             elif fpaths == sys.argv[2]:
                 self._check_in(self.fo,list_file_dir)
             else:
@@ -92,13 +92,13 @@ class CheckDml:
         # print(self.alllogs)
         for list_fo in list_fos:
             list_fo = list_fo.replace("\n", "")
-            list_fo = list_fo.strip()
+            list_fo = list_fo.strip().replace("\\\\", "\\")
             result = list_fo in self.alllogs
             if result:
                 pass
             else:
                 print('\n'+efilename+'未执行语句：\n'+list_fo)
-                print(11)
+                #print(11)
 
         self.oalllogs.close()
 
